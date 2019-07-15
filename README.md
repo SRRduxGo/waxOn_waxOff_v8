@@ -6,5 +6,5 @@ Guide to understand V8 internals and optimize JS
 
     - Locating value of an object's property in memory is an expensive process
     - shapes aka Hidden Classes in (Maps in V8)
-    - JSObject ⇨ Its Shape ⇝ Every property has <..property information.. ∋ offset::Writable::Enumerable::Configurable >
+    - __JSObject ⇨ Its Shape ⇝ Every property has <..property information.. ∋ offset::Writable::Enumerable::Configurable >__
     
