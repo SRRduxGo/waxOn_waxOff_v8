@@ -9,7 +9,7 @@ Guide to understand V8 internals and optimize JS
     - [x] _JSObject ⇨ has **Shape** ⇝ Every property in the **Shape** has <..property information.. ∋ offset::Writable::Enumerable::Configurable>_
     - [x] _**Shape**_  _reduces Memory footprints_
     - [x] _**Transtion chains in V8 ⇨ Chain of Shapes ⇨ Happen when dynamically Add/Delete properties from a JS object whose Shape was already defined when the Js object was initialized**_
-    - [x] _**Transition chains ⇨ More look uptime by V8 Engine to find the property**_ 
+    - [x] _**Transition chains ⇨ More lookup time by V8 Engine to find the property**_ 
     - [x] _Inline Caching (IC) ⇨ Every `function` has a **`Feedback Vector`** , which caches the **Shape** of the objects passed as arguments_
     - [x] _**`Feedback Vector`** caches `shape | properties | offset | state` of the argument object_
     - [x] _**`Feedback Vector`** ⇨ `state` cache  ⇨ can have one of the three values `monomorphic property access` | `polymorphic property access` | `megamorphic property access`_
