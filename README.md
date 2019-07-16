@@ -19,6 +19,9 @@ Guide to understand V8 internals and optimize JS
     - [x] _How **JS frameworks** make property access `monomorphic` :_
 ```javascript
 
+/*
+Here property access is NOT monomorphic
+**/
 type Element{
     fieldA;
     fieldB;
@@ -30,6 +33,10 @@ type Component{
 
 /** both the structures above are 
 combined to yield one Structure - Union of all */
+ 
+ /*
+Here property access IS monomorphic
+**/
  
  type Node {
     tag: nodeType;
@@ -43,3 +50,49 @@ combined to yield one Structure - Union of all */
  
 
 ```
+
+  - [x] _**BitFields** `Array of bits` _
+  
+  ```javascript
+    let effectTag = 0b010100111 //167
+  
+  ```
+   - [x] _**React** uses **BitFields** to encode side effects, each bit in the field signifies what side effect to perform_
+   _ie, `UPDATE` `PLACEMENT` etc_
+   
+   - [x] _**Advantages of BitFields**_
+        - _No need to allocate memory for JS objects and shapes_
+        - _Simplified garbage collection_
+        - _Smaller and Contiguous memory usage_
+        - _Fast access using single bitwise operator_
+   ```javascript
+    const effectTag = 0b000000000010
+    const effectTags  ={
+        Placement: 0b000000000010,
+        Update: 0b000000000100,
+        PlacementAndUpdate: 0b000000001000
+    };
+    
+    if(effectTag & effectTags.Placement){
+        ...
+    }
+  
+  ```
+   - [x] _**Bloom Filters**_ _Data structure which answers `Definitely No` or `Maybe`
+        - _used when answer is `no` most of the times_
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
