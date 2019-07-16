@@ -91,9 +91,8 @@ Here property access IS monomorphic
                 
                 let someValue = Value_Coming_From_Some_Scope()
                 let isItPresent = (bloomFilter & hashKeyFn(someValue)) !== 0
-                
-                
-          ```
+           ```
+        - _Do a_  _**Bloom Filters**_  _test before proceeding with actual comparisons to detect presence_ 
 
 
 
