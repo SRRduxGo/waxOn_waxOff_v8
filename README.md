@@ -80,6 +80,20 @@ Here property access IS monomorphic
   ```
    - [x] _**Bloom Filters**_ _Data structure which answers `Definitely No` or `Maybe`
         - _used when answer is `no` most of the times_
+        - ```javascript
+                
+                let hashKeyFn = (value) => value.charCodeAt(0) % 8;
+                let arr = ['John','Anna','Tom']
+                const hashKey = hashKeyFn(arr[0])
+                let bloomFilter = 0b00000000;
+                
+                bloomFilter = bloomFilter | hashKey
+                
+                let someValue = Value_Coming_From_Some_Scope()
+                let isItPresent = (bloomFilter & hashKeyFn(someValue)) !== 0
+                
+                
+          ```
 
 
 
